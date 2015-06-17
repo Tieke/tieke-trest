@@ -29,6 +29,13 @@ describe 'IndexController' do
     end
   end
 
+  describe "POST '/users'" do
+    it "returns http status code 302" do
+      post '/users'
+      expect(last_response.status).to eq(302)
+    end
+  end
+
   describe "GET '/users/:id'" do
     it "returns http status code 200" do
       get '/users/:id'

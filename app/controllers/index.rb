@@ -18,6 +18,11 @@ post '/posts' do
   redirect '/posts'
 end
 
+# Submitting the new user route
+post '/users' do
+  redirect '/users/:id'
+end
+
 # Display user profile
 get '/users/:id' do
   erb :show_user
