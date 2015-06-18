@@ -42,7 +42,7 @@ end
 post '/posts' do
   if session[:user]
     Post.create(user_id: session[:user].id, img_url: params[:image], caption: params[:caption])
-    redirect '/posts'
+    redirect "/users/#{session[:user].id}"
   else
     invalid_session
   end
@@ -53,7 +53,7 @@ post '/users' do
   @user = User.create(handle: params[:handle], email: params[:email], password: params[:password])
   if User.authenticate(params[:handle], params[:password])
     session[:user] = @user
-    redirect '/users/:id'
+    redirect "/users/#{session[:user].id}"
   else
     redirect '/'
   end
@@ -63,6 +63,7 @@ end
 get '/users/:id' do
   if session[:user]
     @user = User.find(params[:id])
+    @posts = @user.posts
     @self = @user == session[:user]
     erb :show_user
   else
