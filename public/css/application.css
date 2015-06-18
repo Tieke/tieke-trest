@@ -1,8 +1,66 @@
+/*-------------------- general styles --------------------*/
+
+body {
+  background-color: #b2ebf2;
+}
+
+header {
+  background-color: #0097a7;
+}
+
+
+/*-------------------- navigation styles --------------------*/
+
+nav {
+  text-align: center;
+  padding: 10px 0;
+  margin: 20px 0 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0px 10px;
+  padding: 0px;
+  text-align: right;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 15px 10px;
+  text-shadow: rgb(122, 107, 86) 3px 5px 12px;
+}
+
+nav a, nav a:visited, nav a:hover {
+  color: #0097a7;
+}
+
+
+
 /*-------------------- text formatting --------------------*/
+
+h1 {
+  color: #b2ebf2;
+  margin: 20px 0px;
+  padding: 40px 40px;
+  border-top: 10px solid #00bcd4;
+  border-bottom: 14px solid #00bcd4;
+  text-shadow: 5px 5px 5px #727272;
+}
+
+h2, h3 {
+  color: #0097a7;
+  margin: 20px 30px;
+  padding: 20px 30px;
+}
 
 p {
 	text-align: center;
 }
+
 
 /*-------------------- img formatting --------------------*/
 

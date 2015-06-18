@@ -1,7 +1,9 @@
 <nav>
-    <a href="/posts">home</a> |
-    <a href="/followers">followers</a> |
-    <a href="/users/<%= session[:user_id] %>">profile</a> |
-    <a href="/posts/new">upload</a> |
-    <a href="/logout">logout</a>
+  <ul>
+    <li><a href="/posts">home</a></li>
+    <li><a href="/followers">followers</a></li>
+    <li><a href="/users/<%= session[:user_id] %>">profile</a></li>
+    <li><a href="/posts/new">upload</a></li>
+    <li><a href="/logout">logout</a></li>
+  </ul>
 </nav>
