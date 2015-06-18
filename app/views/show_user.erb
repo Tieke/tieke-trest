@@ -3,7 +3,7 @@
 <% if !@self %>
   <form action="/followers/new" method="post">
     <input type="hidden" name="id" value="<%=@user.id %>">
-    <input type="submit" value="Follow">
+    <input class="button" type="submit" value="Follow">
   </form>
 <% end %>
 
@@ -12,16 +12,20 @@
 
 	<% @posts.each do |post| %>
 		  <img class="secret_img" src="<%= post.img_url %>">
-		  <p><%= post.caption %></p>
+      <div class="caption">
+  		  <p><%= post.caption %> by <%= post.user.handle %></p>
+      </div>
 
-		  <form action="/posts/<%=post.id%>/edit" method="get">
-				<input type="submit" value="edit post">
-			</form>
+      <div class="profile-buttons">
+  		  <form action="/posts/<%=post.id%>/edit" method="get">
+  				<input class="button profile" type="submit" value="edit post">
+  			</form>
 
-		  <form action="/posts/<%=post.id%>" method="post">
-				<input type="hidden" name="_method" value="delete">
-				<input type="submit" value="delete post">
-			</form>
+  		  <form action="/posts/<%=post.id%>" method="post">
+  				<input type="hidden" name="_method" value="delete">
+  				<input class="button profile" type="submit" value="delete post">
+  			</form>
+      </div>
 	<% end %>
 
 </div>

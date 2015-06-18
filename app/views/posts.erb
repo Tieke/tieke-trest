@@ -1,11 +1,11 @@
-<h2>Recent posts:</h2>
+<h2>Recent posts from people you follow:</h2>
 
 <div class="container">
 
 <% if @posts[0] && @posts[0].size > 0 %>
 	<% @posts[0].each_with_index do |post, post_index| %>
 			<img class="secret_img" src="<%= post.img_url %>">
-			<p><%= post.caption %></p>
+			<p><%= post.caption %> by <%= post.user.handle %></p>
 	<% end %>
 <% end %>
 
