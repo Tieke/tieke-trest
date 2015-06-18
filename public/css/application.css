@@ -1,0 +1,21 @@
+/*-------------------- text formatting --------------------*/
+
+p {
+	text-align: center;
+}
+
+/*-------------------- img formatting --------------------*/
+
+.container {
+	display: block;
+  margin: 20px auto;
+  max-width: 70%;
+}
+
+.secret_img {
+	border: 1px solid #261A40;
+	width: 95%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
