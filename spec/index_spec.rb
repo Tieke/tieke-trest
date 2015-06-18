@@ -4,6 +4,8 @@ describe 'IndexController' do
 
 let (:rack_session) { {'rack.session' => { :user_id => create(:user).id } } }
 
+let (:valid_user) {create(:user)}
+
   describe "GET '/'" do
     it "returns http status code 200" do
       get '/'
@@ -42,7 +44,7 @@ let (:rack_session) { {'rack.session' => { :user_id => create(:user).id } } }
 
   describe "GET '/users/:id'" do
     it "returns http status code 200" do
-      user = create(:user)
+      user = valid_user
       get "/users/#{user.id}", {} , rack_session
       expect(last_response.status).to eq(200)
     end
@@ -58,7 +60,7 @@ let (:rack_session) { {'rack.session' => { :user_id => create(:user).id } } }
   describe "POST '/followers/new'" do
     it "returns http status code 302" do
       follower = Follower.create
-      user = create(:user)
+      user = valid_user
       user.followers << follower
       post '/followers/new', {id: follower.id} , rack_session
       expect(last_response.status).to eq(302)
