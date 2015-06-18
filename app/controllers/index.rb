@@ -12,10 +12,10 @@ end
 # Posts of people you follow
 get '/posts' do
   if session[:user]
+    @user = session[:user]
     erb :posts
   else
-    session[:error] = "Sorry, you don't have permission to view that page."
-    redirect '/'
+    invalid_session
   end
 end
 
@@ -24,8 +24,7 @@ get '/posts/new' do
   if session[:user]
     erb :new_post
   else
-    session[:error] = "Sorry, you don't have permission to view that page."
-    redirect '/'
+    invalid_session
   end
 end
 
@@ -34,8 +33,7 @@ post '/posts' do
   if session[:user]
     redirect '/posts'
   else
-    session[:error] = "Sorry, you don't have permission to view that page."
-    redirect '/'
+    invalid_session
   end
 end
 
@@ -55,8 +53,7 @@ get '/users/:id' do
   if session[:user]
     erb :show_user
   else
-    session[:error] = "Sorry, you don't have permission to view that page."
-    redirect '/'
+    invalid_session
   end
 end
 
@@ -65,8 +62,7 @@ get '/followers' do
   if session[:user]
     erb :followers
   else
-    session[:error] = "Sorry, you don't have permission to view that page."
-    redirect '/'
+    invalid_session
   end
 end
 
@@ -75,8 +71,8 @@ post '/followers' do
   if session[:user]
     redirect '/followers'
   else
-    session[:error] = "Sorry, you don't have permission to view that page."
-    redirect '/'
+    invalid_session
+  end
 end
 
 # Login
@@ -85,13 +81,23 @@ post '/login' do
     session[:user] = @user
     redirect '/posts'
   else
-    session[:error] = "Invalid user name or password"
-    redirect '/'
+    invalid_login
   end
 end
 
 # Logout
 get '/logout' do
   session.clear
+  redirect '/'
+end
+
+
+def invalid_login
+  session[:error] = "Invalid user name or password"
+  redirect '/'
+end
+
+def invalid_session
+  session[:error] = "Sorry, you don't have permission to view that page."
   redirect '/'
 end
