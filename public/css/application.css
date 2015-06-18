@@ -107,6 +107,13 @@ p {
   box-shadow: 5px 5px 5px #727272;
 }
 
+.caption {
+  float: left;
+  text-align: center;
+  width: 50%;
+  margin-bottom: 60px;
+}
+
 
 /*-------------------- form formatting --------------------*/
 
@@ -116,6 +123,17 @@ p {
   border: 1px solid #00bcd4;
   margin: 20px 70px;
   box-shadow: 1px 1px 1px #727272;
+}
+
+.profile {
+  margin: 20px;
+  float: right;
+}
+
+.profile-buttons {
+  margin: 20px;
+  float: right;
+  width: 40%;
 }
 
 .field {
