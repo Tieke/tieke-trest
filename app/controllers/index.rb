@@ -11,17 +11,30 @@ end
 
 # Posts of people you follow
 get '/posts' do
-  erb :posts
+  if session[:user]
+    @user = session[:user]
+    erb :posts
+  else
+    invalid_session
+  end
 end
 
 # Display the new post form
 get '/posts/new' do
-  erb :new_post
+  if session[:user]
+    erb :new_post
+  else
+    invalid_session
+  end
 end
 
 # Submitting the new post
 post '/posts' do
-  redirect '/posts'
+  if session[:user]
+    redirect '/posts'
+  else
+    invalid_session
+  end
 end
 
 # Submitting the new user route
@@ -37,17 +50,29 @@ end
 
 # Display user profile
 get '/users/:id' do
-  erb :show_user
+  if session[:user]
+    erb :show_user
+  else
+    invalid_session
+  end
 end
 
 # Display list of your followers
 get '/followers' do
-  erb :followers
+  if session[:user]
+    erb :followers
+  else
+    invalid_session
+  end
 end
 
 # Follow someone
 post '/followers' do
-  redirect '/followers'
+  if session[:user]
+    redirect '/followers'
+  else
+    invalid_session
+  end
 end
 
 # Login
@@ -56,13 +81,23 @@ post '/login' do
     session[:user] = @user
     redirect '/posts'
   else
-    session[:error] = "Invalid user name or password"
-    redirect '/'
+    invalid_login
   end
 end
 
 # Logout
 get '/logout' do
   session.clear
+  redirect '/'
+end
+
+
+def invalid_login
+  session[:error] = "Invalid user name or password"
+  redirect '/'
+end
+
+def invalid_session
+  session[:error] = "Sorry, you don't have permission to view that page."
   redirect '/'
 end
