@@ -13,6 +13,10 @@ end
 get '/posts' do
   if session[:user]
     @user = session[:user]
+    @user_follows = Follower.where(user_id: @user.id)
+    @user_following = UserFollower.where(follower_id: @user_follows.first.id)
+    @users = User.where(id: @user_following)
+    @posts = @users.posts
     erb :posts
   else
     invalid_session
