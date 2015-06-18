@@ -1,9 +1,9 @@
-<%= erb :navbar %>
+<h2>Upload an Image</h2>
 
 <form action="/posts" method="post">
   <label for="image">Image url:</label>
-  <input type="text" name="image">
+  <input class="field" type="text" name="image">
   <label for="caption">Caption:</label>
-  <input type="text" name="caption">
-  <input type="submit" value="Create Post">
+  <input class="field" type="text" name="caption">
+  <input class="button" type="submit" value="Create Post">
 </form>
