@@ -22,5 +22,8 @@ describe "User" do
     expect(User.authenticate(user.handle, "password")).to eq(user)
   end
 
-  xit "doesn't authenticate an invalid password"
+  it "doesn't #authenticate an invalid password" do
+    user = create(:user, password: "password")
+    expect(User.authenticate(user.handle, "schlerp")).to be_nil
+  end
 end
