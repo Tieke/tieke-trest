@@ -48,6 +48,24 @@ post '/posts' do
   end
 end
 
+# update a post
+get '/posts/:id/edit' do
+  @post = Post.find(params[:id])
+  erb :edit_post
+end
+
+patch '/posts/:id' do
+  if @user = current_user
+    post = Post.find(params[:id])
+    post.update(caption: params[:caption])
+    redirect "/users/#{@user.id}"
+  else
+    invalid_session
+  end
+end
+
+
+# delete a post 
 delete '/posts/:id' do
   if session[:user]
     post = Post.find(params[:id])
