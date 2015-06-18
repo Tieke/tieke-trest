@@ -11,8 +11,18 @@ end
 
 # Posts of people you follow
 get '/posts' do
-  if session[:user]
-    @user = session[:user]
+  if @user = session[:user]
+    @user_follows = Follower.find_by(user_follower_id: @user.id)
+    # puts @user_follows
+    @user_following = UserFollower.where(follower_id: @user_follows.id) if @user_follows
+    @users = User.where(id: @user_following)
+    @posts = []
+    @users.each { |user| @posts << user.posts }
+    puts "*" * 100
+    # puts @posts
+    @posts.compact!
+    puts @posts.inspect
+    puts "*" * 100
     erb :posts
   else
     invalid_session
@@ -31,6 +41,7 @@ end
 # Submitting the new post
 post '/posts' do
   if session[:user]
+    Post.create(user_id: session[:user].id, img_url: params[:image], caption: params[:caption])
     redirect '/posts'
   else
     invalid_session
@@ -51,6 +62,8 @@ end
 # Display user profile
 get '/users/:id' do
   if session[:user]
+    @user = User.find(params[:id])
+    @self = @user == session[:user]
     erb :show_user
   else
     invalid_session
@@ -67,9 +80,11 @@ get '/followers' do
 end
 
 # Follow someone
-post '/followers' do
+post '/followers/new' do
   if session[:user]
-    redirect '/followers'
+    follower = Follower.create(user_follower_id: session[:user].id)
+    UserFollower.create(user_id: params[:id], follower_id: follower.id)
+    redirect '/posts'
   else
     invalid_session
   end

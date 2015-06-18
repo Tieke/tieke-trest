@@ -1,32 +1,11 @@
 
 <%= erb :navbar %>
 
-
 <h1>Recent posts:</h1>
 
-
-<ul>
-	<li>Here is a thing on your feed</li>
-	<li>Here is another thing on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-	<li>More things on your feed</li>
-</ul>
-
-
-
-<form action="logout" method="get">
-	<input type="submit" value="logout">
-</form>
+<% if @posts[0].size > 0 %>
+	<% @posts[0].each_with_index do |post, post_index| %>
+		<img src="<%= post.img_url %>">
+		<p><%= post.caption %></p>
+	<% end %>
+<% end %>
