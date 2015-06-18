@@ -1,13 +1,9 @@
 <nav>
   <ul>
-    <% if @home == true %>
-        <li><a id="selected" href="/posts">home</a></li>
-      <% else %>
-        <li><a href="/posts">home</a></li>
-    <% end %>
-    <li><a href="/followers">followers</a></li>
-    <li><a href="/users/<%= session[:user_id] %>">profile</a></li>
-    <li><a href="/posts/new">upload</a></li>
+    <li><a href="/posts" id=<%= "selected" if active_page?("posts") %> >home</a></li>
+    <li><a href="/followers" id=<%= "selected" if active_page?("followers") %> >followers</a></li>
+    <li><a href="/users/<%= session[:user_id] %>" id="<%= "selected" if active_page?("users/#{session[:user_id].to_s}") %>" >profile</a></li>
+    <li><a href="/posts/new" id=<%= "selected" if active_page?("posts/new") %> >upload</a></li>
     <li><a href="/logout">logout</a></li>
   </ul>
 </nav>
