@@ -20,6 +20,11 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 
+require 'factory_girl'
+
+FactoryGirl.definition_file_paths = %w{./factories ./test/factories ./spec/factories}
+FactoryGirl.find_definitions
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
