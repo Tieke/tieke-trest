@@ -79,13 +79,13 @@ end
 
 # Submitting the new user route
 post '/users' do
-  @user = User.create(handle: params[:handle], email: params[:email], password: params[:password])
-  if @user && User.authenticate(params[:handle], params[:password])
+  @user = User.new(handle: params[:handle], email: params[:email], password: params[:password])
+  if @user.save && User.authenticate(params[:handle], params[:password])
     session[:user_id] = @user.id
     redirect "/users/#{current_user.id}"
-  else
-    redirect '/'
   end
+    session[:error] = "You've already signed up, please log in."
+    redirect '/'
 end
 
 # Display user profile
