@@ -22,6 +22,7 @@ get '/posts' do
     @posts = []
     @users.each { |user| @posts << user.posts }
     @posts.compact!
+    @home = true
 
     erb :posts
   else
@@ -65,7 +66,7 @@ patch '/posts/:id' do
 end
 
 
-# delete a post 
+# delete a post
 delete '/posts/:id' do
   if session[:user]
     post = Post.find(params[:id])
