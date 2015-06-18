@@ -1,3 +1,5 @@
+require 'scrypt'
+
 class User < ActiveRecord::Base
 
 	has_many :user_followers
@@ -6,10 +8,17 @@ class User < ActiveRecord::Base
 
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+{2,}\z/}
   validates :email, uniqueness: true, presence: true
-  validates :password, length: 5, presence: true
+  validates :password, length: { minimum: 5 }, presence: true
 
-  def authenticate(password)
-    return true if password == self.password
+  before_create do
+    self.password = SCrypt::Password.create(password)
   end
-  
+
+  def self.authenticate(handle, password)
+    if user = User.find_by(handle: handle)
+      return user if SCrypt::Password.new(user.password) == password
+    end
+    return nil
+  end
+
 end
