@@ -48,6 +48,16 @@ post '/posts' do
   end
 end
 
+delete '/posts/:id' do
+  if session[:user]
+    post = Post.find(params[:id])
+    post.destroy
+    redirect "/users/#{session[:user].id}"
+  else
+    invalid_session
+  end
+end
+
 # Submitting the new user route
 post '/users' do
   @user = User.create(handle: params[:handle], email: params[:email], password: params[:password])
