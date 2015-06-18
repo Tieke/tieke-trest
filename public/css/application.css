@@ -6,15 +6,32 @@ body {
 
 header {
   background-color: #0097a7;
+  float: left;
+  width: 100%;
+  margin: 0 0 30px 0;
+  padding: 40px 0;
+  border-top: 10px solid #00bcd4;
+  border-bottom: 12px solid #00bcd4;
+}
+
+#title {
+  float: left;
+  margin-left: 5%;
+  text-align: left;
+  width: 45%;
 }
 
 
 /*-------------------- navigation styles --------------------*/
 
 nav {
-  text-align: center;
+  float: right;
+  text-align: right;
   padding: 10px 0;
   margin: 20px 0 0;
+  margin-right: 5%;
+  width: 45%;
+  padding: 20px 0;
 }
 
 nav ul {
@@ -32,10 +49,15 @@ nav a {
   text-decoration: none;
   padding: 15px 10px;
   text-shadow: rgb(122, 107, 86) 3px 5px 12px;
+  font-size: 1.25em;
 }
 
-nav a, nav a:visited, nav a:hover {
-  color: #0097a7;
+nav a, nav a:visited {
+  color: #b2ebf2;
+}
+
+nav a:hover {
+  color: #7c4dff;
 }
 
 
@@ -44,11 +66,10 @@ nav a, nav a:visited, nav a:hover {
 
 h1 {
   color: #b2ebf2;
-  margin: 20px 0px;
-  padding: 40px 40px;
-  border-top: 10px solid #00bcd4;
-  border-bottom: 14px solid #00bcd4;
   text-shadow: 5px 5px 5px #727272;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 2.5em;
+  padding: 20px 0;
 }
 
 h2, h3 {
@@ -59,6 +80,8 @@ h2, h3 {
 
 p {
 	text-align: center;
+  margin: 20px 30px;
+  padding: 20px 20px;
 }
 
 
@@ -76,4 +99,26 @@ p {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+
+/*-------------------- form formatting --------------------*/
+
+.button {
+  background-color: #b2ebf2;
+  color: #0097a7;
+  border: 1px solid #00bcd4;
+  margin: 0 10px;
+  box-shadow: 1px 1px 1px #727272;
+}
+
+.field {
+  margin: 0 10px;
+  background-color: #b2ebf2;
+  color: #0097a7;
+  border: 1px solid #00bcd4;
+}
+
+.label {
+  color: #0097a7;
 }
