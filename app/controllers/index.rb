@@ -69,10 +69,10 @@ end
 
 # delete a post
 delete '/posts/:id' do
-  if session[:user]
+  if current_user
     post = Post.find(params[:id])
     post.destroy
-    redirect "/users/#{session[:user].id}"
+    redirect "/users/#{session[:user_id]}"
   else
     invalid_session
   end
