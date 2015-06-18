@@ -1,0 +1,11 @@
+<div class="container">
+	<img class="secret_img" src="<%= @post.img_url %>">
+  
+
+  <form action="/posts/<%=@post.id%>" method="post">
+  	<input type="hidden" name="_method" value="patch">
+  	<input type="text" name="caption" placeholder="<%=@post.caption%>">
+  	<input type="submit" value="edit post">
+
+  </form>
+</div>
