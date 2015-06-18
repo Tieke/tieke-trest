@@ -78,8 +78,8 @@ h1 {
 
 h2, h3 {
   color: #0097a7;
-  margin: 20px 30px;
-  padding: 20px 30px;
+  margin: 10px 30px 20px;
+  padding: 10px 30px;
 }
 
 p {
@@ -150,7 +150,7 @@ input[type="password"] {
   background-color: #b2ebf2;
   color: #0097a7;
   border: 1px solid #00bcd4;
-  margin: 15px 20px;
+  margin: 5px 20px 15px;
   width: 100%;
 }
 
