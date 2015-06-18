@@ -15,6 +15,7 @@ require 'capybara/rspec'
 require 'factory_girl'
 require 'faker'
 require 'validate_url'
+require 'scrypt'
 
 FactoryGirl.definition_file_paths = %w{./factories ./test/factories ./spec/factories}
 FactoryGirl.find_definitions
