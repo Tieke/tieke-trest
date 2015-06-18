@@ -1,8 +1,15 @@
-<h2>Your profile:</h2>
+<%= erb :navbar %>
 
+<h2><%= @user.handle %>'s Profile:</h2>
 
-<p>Here is some stuff about you.</p>
+<% if !@self %>
+  <form action="/followers/new" method="post">
+    <input type="hidden" name="id" value="<%=@user.id %>">
+    <input type="submit" value="Follow">
+  </form>
+<% end %>
 
-<form action="/posts" method="get">
-	<input type="submit" value="home">
-</form>
+<% @posts.each do |post| %>
+  <img src="<%= post.img_url %>">
+  <p><%= post.caption %></p>
+<% end %>
