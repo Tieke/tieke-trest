@@ -60,6 +60,10 @@ nav a:hover {
   color: #7c4dff;
 }
 
+#selected {
+  color: #7c4dff;
+}
+
 
 
 /*-------------------- text formatting --------------------*/
@@ -117,11 +121,16 @@ p {
 
 /*-------------------- form formatting --------------------*/
 
+form {
+  margin-left: 50px;
+  max-width: 300px;
+}
+
 .button {
   background-color: #b2ebf2;
   color: #0097a7;
   border: 1px solid #00bcd4;
-  margin: 20px 70px;
+  margin: 20px 20px;
   box-shadow: 1px 1px 1px #727272;
 }
 
@@ -136,17 +145,17 @@ p {
   width: 40%;
 }
 
-.field {
-  margin: 0 10px;
+input[type="text"],
+input[type="password"] {
   background-color: #b2ebf2;
   color: #0097a7;
   border: 1px solid #00bcd4;
   margin: 15px 20px;
+  width: 100%;
 }
 
 label {
   margin: 0 20px;
-  padding-left: 50px;
   color: #0097a7;
 }
 
