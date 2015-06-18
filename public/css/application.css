@@ -79,9 +79,14 @@ h2, h3 {
 }
 
 p {
+  color: #0097a7;
 	text-align: center;
   margin: 20px 30px;
   padding: 20px 20px;
+}
+
+.error {
+  color: #7c4dff;
 }
 
 
@@ -99,6 +104,7 @@ p {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+  box-shadow: 5px 5px 5px #727272;
 }
 
 
@@ -108,7 +114,7 @@ p {
   background-color: #b2ebf2;
   color: #0097a7;
   border: 1px solid #00bcd4;
-  margin: 0 10px;
+  margin: 20px 70px;
   box-shadow: 1px 1px 1px #727272;
 }
 
@@ -117,8 +123,24 @@ p {
   background-color: #b2ebf2;
   color: #0097a7;
   border: 1px solid #00bcd4;
+  margin: 15px 20px;
 }
 
-.label {
+label {
+  margin: 0 20px;
+  padding-left: 50px;
   color: #0097a7;
+}
+
+
+/*-------------------- login screen formatting --------------------*/
+
+#primary {
+  width: 35%;
+  float: left;
+}
+
+#secondary {
+  width: 55%;
+  float: right;
 }
