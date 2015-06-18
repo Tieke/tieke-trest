@@ -9,5 +9,7 @@
   </form>
 <% end %>
 
-
-<p>Here is some stuff about you.</p>
+<% @posts.each do |post| %>
+  <img src="<%= post.img_url %>">
+  <p><%= post.caption %></p>
+<% end %>
