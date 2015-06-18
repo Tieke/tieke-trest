@@ -1,10 +1,13 @@
 <%= erb :navbar %>
 
-<h2> profile:</h2>
+<h2><%= @user.handle %>'s Profile:</h2>
+
+<% if !@self %>
+  <form action="/followers/new" method="post">
+    <input type="hidden" name="id" value="<%=@user.id %>">
+    <input type="submit" value="Follow">
+  </form>
+<% end %>
 
 
 <p>Here is some stuff about you.</p>
-
-<form action="/posts" method="get">
-	<input type="submit" value="home">
-</form>

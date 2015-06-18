@@ -1,12 +1,11 @@
 
 <%= erb :navbar %>
 
-
 <h1>Recent posts:</h1>
 
-
-<ul>
-<% @posts.each do |post| %>
-	<li><%= post.image_url %><%= post.caption %></li>
+<% if @posts[0].size > 0 %>
+	<% @posts[0].each_with_index do |post, post_index| %>
+		<img src="<%= post.img_url %>">
+		<p><%= post.caption %></p>
+	<% end %>
 <% end %>
-</ul>
