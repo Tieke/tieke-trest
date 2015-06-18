@@ -127,9 +127,9 @@ form {
 }
 
 .button {
-  background-color: #b2ebf2;
-  color: #0097a7;
-  border: 1px solid #00bcd4;
+  background-color: #00bcd4;
+  color: #7c4dff;
+  border: 1px solid #936cff;
   margin: 20px 20px;
   padding: 6px 12px;
   box-shadow: 1px 1px 1px #727272;
@@ -137,7 +137,7 @@ form {
 }
 
 .button:hover {
-  background-color: #7c4dff;
+  background-color: #936cff;
   color: #b2ebf2;
   border: 1px solid #727272;
 
@@ -156,7 +156,7 @@ form {
 
 input[type="text"],
 input[type="password"] {
-  background-color: #b2ebf2;
+  background-color: #CEF2F7;
   color: #0097a7;
   border: 1px solid #00bcd4;
   margin: 5px 20px 15px;
