@@ -15,15 +15,9 @@ class User < ActiveRecord::Base
     self.password = SCrypt::Password.create(password)
   end
 
-  # def self.authenticate(handle, password)
-  #   if user = User.find_by!(handle: handle)
-  #     return user if SCrypt::Password.new(user.password) == password
-  #   end
-  # end
-
   def self.authenticate(handle, password)
     user = User.find_by!(handle: handle)
-    return user if SCrypt::Password.new(user.password) === password
+    return user if SCrypt::Password.new(user.password) == password
     nil
   end
 

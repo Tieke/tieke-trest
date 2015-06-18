@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe 'IndexController' do
+
+let (:rack_session) { {'rack.session' => { :user_id => create(:user).id } } }
+
   describe "GET '/'" do
     it "returns http status code 200" do
       get '/'
@@ -10,49 +13,54 @@ describe 'IndexController' do
 
   describe "GET '/posts'" do
     it "returns http status code 200" do
-      get '/posts'
+      get '/posts', {} , rack_session
       expect(last_response.status).to eq(200)
     end
   end
 
   describe "GET '/posts/new'" do
     it "returns http status code 200" do
-      get '/posts/new'
+      get '/posts/new', {} , rack_session
       expect(last_response.status).to eq(200)
     end
   end
 
   describe "POST '/posts'" do
     it "returns http status code 302" do
-      post '/posts'
+      post '/posts', {} , rack_session
       expect(last_response.status).to eq(302)
     end
   end
 
   describe "POST '/users'" do
     it "returns http status code 302" do
-      post '/users'
+      user = FactoryGirl.build(:user)
+      post '/users', user.attributes
       expect(last_response.status).to eq(302)
     end
   end
 
   describe "GET '/users/:id'" do
     it "returns http status code 200" do
-      get '/users/:id'
+      user = create(:user)
+      get "/users/#{user.id}", {} , rack_session
       expect(last_response.status).to eq(200)
     end
   end
 
   describe "GET '/followers'" do
     it "returns http status code 200" do
-      get '/followers'
+      get '/followers', {} , rack_session
       expect(last_response.status).to eq(200)
     end
   end
 
-  describe "POST '/followers'" do
+  describe "POST '/followers/new'" do
     it "returns http status code 302" do
-      post '/followers'
+      follower = Follower.create
+      user = create(:user)
+      user.followers << follower
+      post '/followers/new', {id: follower.id} , rack_session
       expect(last_response.status).to eq(302)
     end
   end

@@ -18,8 +18,8 @@ describe "User" do
   end
 
   it "#authenticate correct password" do
-    user = create(:user)
-    expect(User.authenticate(user.handle, user.password)).to eq(user)
+    user = create(:user, password: "password")
+    expect(User.authenticate(user.handle, "password")).to eq(user)
   end
 
   xit "doesn't authenticate an invalid password"
