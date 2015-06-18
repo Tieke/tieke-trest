@@ -16,13 +16,13 @@ end
 # Posts of people you follow
 get '/posts' do
   if @user = current_user
-    @user_follows = Follower.find_by(user_follower_id: current_user.id)
-    @user_following = UserFollower.where(follower_id: @user_follows.id) if @user_follows
-    @users = User.where(id: @user_following)
-    @posts = []
-    @users.each { |user| @posts << user.posts }
-    @posts.compact!
-    @home = true
+    user_follows = Follower.find_by(user_follower_id: current_user.id)
+    user_following = UserFollower.where(follower_id: user_follows.id) if user_follows
+    users = []
+    user_following.each {|followee| users << User.find(followee.user_id)}
+    @feed_array = []
+    users.each { |user| @feed_array << user.posts }
+    @feed_array.compact!
 
     erb :posts
   else
@@ -111,8 +111,8 @@ end
 
 # Follow someone
 post '/followers/new' do
-  if current_user
-    follower = Follower.create(user_follower_id: current_user.id)
+  if user = current_user
+    follower = Follower.create(user_follower_id: user.id) unless follower = Follower.find_by_user_follower_id(user.id)
     UserFollower.create(user_id: params[:id], follower_id: follower.id)
     redirect '/posts'
   else
