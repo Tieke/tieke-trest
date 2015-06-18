@@ -9,7 +9,7 @@
   </form>
 <% end %>
 
-<% @posts.each do |post| %>
-  <img src="<%= post.img_url %>">
-  <p><%= post.caption %></p>
-<% end %>
+  <%@posts.each do |post| %>
+    <img src="<%= post.img_url %>">
+    <p><%= post.caption %></p>
+  <% end %>

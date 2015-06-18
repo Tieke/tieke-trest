@@ -2,6 +2,10 @@ require 'scrypt'
 
 enable :sessions
 
+def current_user
+  @current_user ||= User.find_by(id: session[:user_id])
+end
+
 # Login / Sign Up
 get '/' do
   @errors = session[:error]
@@ -11,18 +15,14 @@ end
 
 # Posts of people you follow
 get '/posts' do
-  if @user = session[:user]
-    @user_follows = Follower.find_by(user_follower_id: @user.id)
-    # puts @user_follows
+  if @user = current_user
+    @user_follows = Follower.find_by(user_follower_id: current_user.id)
     @user_following = UserFollower.where(follower_id: @user_follows.id) if @user_follows
     @users = User.where(id: @user_following)
     @posts = []
     @users.each { |user| @posts << user.posts }
-    puts "*" * 100
-    # puts @posts
     @posts.compact!
-    puts @posts.inspect
-    puts "*" * 100
+
     erb :posts
   else
     invalid_session
@@ -31,7 +31,7 @@ end
 
 # Display the new post form
 get '/posts/new' do
-  if session[:user]
+  if current_user
     erb :new_post
   else
     invalid_session
@@ -40,9 +40,9 @@ end
 
 # Submitting the new post
 post '/posts' do
-  if session[:user]
-    Post.create(user_id: session[:user].id, img_url: params[:image], caption: params[:caption])
-    redirect "/users/#{session[:user].id}"
+  if current_user
+    Post.create(user_id: current_user.id, img_url: params[:image], caption: params[:caption])
+    redirect "/users/#{current_user.id}"
   else
     invalid_session
   end
@@ -50,10 +50,10 @@ end
 
 # Submitting the new user route
 post '/users' do
-  @user = User.create(handle: params[:handle], email: params[:email], password: params[:password])
+  @user = User.create!(handle: params[:handle], email: params[:email], password: params[:password])
   if User.authenticate(params[:handle], params[:password])
-    session[:user] = @user
-    redirect "/users/#{session[:user].id}"
+    session[:user_id] = @user.id
+    redirect "/users/#{current_user.id}"
   else
     redirect '/'
   end
@@ -61,10 +61,10 @@ end
 
 # Display user profile
 get '/users/:id' do
-  if session[:user]
+  if current_user
     @user = User.find(params[:id])
     @posts = @user.posts
-    @self = @user == session[:user]
+    @self = @user == current_user
     erb :show_user
   else
     invalid_session
@@ -73,7 +73,7 @@ end
 
 # Display list of your followers
 get '/followers' do
-  if session[:user]
+  if current_user
     erb :followers
   else
     invalid_session
@@ -82,8 +82,8 @@ end
 
 # Follow someone
 post '/followers/new' do
-  if session[:user]
-    follower = Follower.create(user_follower_id: session[:user].id)
+  if current_user
+    follower = Follower.create(user_follower_id: current_user.id)
     UserFollower.create(user_id: params[:id], follower_id: follower.id)
     redirect '/posts'
   else
@@ -93,8 +93,10 @@ end
 
 # Login
 post '/login' do
+  puts params
+  p User.authenticate(params[:handle], params[:password])
   if @user = User.authenticate(params[:handle], params[:password])
-    session[:user] = @user
+    session[:user_id] = @user.id
     redirect '/posts'
   else
     invalid_login
