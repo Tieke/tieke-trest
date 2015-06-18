@@ -65,7 +65,7 @@ patch '/posts/:id' do
 end
 
 
-# delete a post 
+# delete a post
 delete '/posts/:id' do
   if session[:user]
     post = Post.find(params[:id])
@@ -78,8 +78,8 @@ end
 
 # Submitting the new user route
 post '/users' do
-  @user = User.create!(handle: params[:handle], email: params[:email], password: params[:password])
-  if User.authenticate(params[:handle], params[:password])
+  @user = User.create(handle: params[:handle], email: params[:email], password: params[:password])
+  if @user && User.authenticate(params[:handle], params[:password])
     session[:user_id] = @user.id
     redirect "/users/#{current_user.id}"
   else
