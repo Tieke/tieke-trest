@@ -22,6 +22,7 @@ get '/posts' do
     @posts = []
     @users.each { |user| @posts << user.posts }
     @posts.compact!
+    @home = true
 
     erb :posts
   else

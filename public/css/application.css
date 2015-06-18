@@ -60,6 +60,10 @@ nav a:hover {
   color: #7c4dff;
 }
 
+#selected {
+  color: #7c4dff;
+}
+
 
 
 /*-------------------- text formatting --------------------*/
@@ -74,14 +78,19 @@ h1 {
 
 h2, h3 {
   color: #0097a7;
-  margin: 20px 30px;
-  padding: 20px 30px;
+  margin: 10px 30px 20px;
+  padding: 10px 30px;
 }
 
 p {
+  color: #0097a7;
 	text-align: center;
   margin: 20px 30px;
   padding: 20px 20px;
+}
+
+.error {
+  color: #7c4dff;
 }
 
 
@@ -99,26 +108,66 @@ p {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+  box-shadow: 5px 5px 5px #727272;
+}
+
+.caption {
+  float: left;
+  text-align: center;
+  width: 50%;
+  margin-bottom: 60px;
 }
 
 
 /*-------------------- form formatting --------------------*/
 
+form {
+  margin-left: 50px;
+  max-width: 300px;
+}
+
 .button {
   background-color: #b2ebf2;
   color: #0097a7;
   border: 1px solid #00bcd4;
-  margin: 0 10px;
+  margin: 20px 20px;
   box-shadow: 1px 1px 1px #727272;
 }
 
-.field {
-  margin: 0 10px;
+.profile {
+  margin: 20px;
+  float: right;
+}
+
+.profile-buttons {
+  margin: 20px;
+  float: right;
+  width: 40%;
+}
+
+input[type="text"],
+input[type="password"] {
   background-color: #b2ebf2;
   color: #0097a7;
   border: 1px solid #00bcd4;
+  margin: 5px 20px 15px;
+  width: 100%;
 }
 
-.label {
+label {
+  margin: 0 20px;
   color: #0097a7;
+}
+
+
+/*-------------------- login screen formatting --------------------*/
+
+#primary {
+  width: 35%;
+  float: left;
+}
+
+#secondary {
+  width: 55%;
+  float: right;
 }

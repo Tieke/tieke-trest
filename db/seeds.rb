@@ -1,7 +1,10 @@
 require 'faker'
 require 'factory_girl'
 
+
+
 20.times {FactoryGirl.create(:user)}
+
 
 def sampled_follower_id_minus_user(user)
   users_minus_user = User.all - User.where(id: user.id)
@@ -13,7 +16,7 @@ def random_num_of_followers(user)
 end
 
 def random_num_of_posts(user)
-  rand(1..10).times {user.followers << FactoryGirl.create(:follower)}
+  rand(1..10).times {user.posts << FactoryGirl.create(:post)}
 end
 
 User.all.each do |user|

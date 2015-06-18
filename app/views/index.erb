@@ -1,21 +1,25 @@
 <p class="error"><%= @errors %></p>
 
-<h2>Login</h2>
-<form action="/login" method="post">
-  <label for="username">User name:</label>
-  <input type="text" name="handle">
-  <label for="password">Password:</password>
-  <input type="password" name="password">
-  <input type="submit" value="Log in">
-</form>
+<div id="primary">
+  <h2>Login</h2>
+  <form action="/login" method="post">
+    <label for="username">User name:</label>
+    <input type="text" name="handle"><br>
+    <label for="password">Password:</password>
+    <input type="password" name="password"><br>
+    <input class="button" type="submit" value="Log in">
+  </form>
+</div>
 
-<h2>Sign Up</h2>
-<form action="/users" method="post">
-  <label for="handle">User name:</label>
-  <input type="text" name="handle">
-  <label for="email">Email:</label>
-  <input type="text" name="email">
-  <label for="password">Password:</label>
-  <input type="password" name="password">
-  <input type="submit" value="Create Account">
-</form>
+<div id="secondary">
+  <h2>Sign Up</h2>
+  <form action="/users" method="post">
+    <label for="handle">User name:</label>
+    <input type="text" name="handle"><br>
+    <label for="email">Email:</label>
+    <input type="text" name="email"><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password"><br>
+    <input class="button" type="submit" value="Create Account">
+  </form>
+</div>
