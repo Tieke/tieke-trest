@@ -19,7 +19,7 @@ get '/posts' do
     user_follows = Follower.find_by(user_follower_id: current_user.id)
     user_following = UserFollower.where(follower_id: user_follows.id) if user_follows
     users = []
-    user_following.each {|followee| users << User.find(followee.user_id)}
+    user_following.each {|followee| users << User.find(followee.user_id)} if user_following
     @feed_array = []
     users.each { |user| @feed_array << user.posts }
     @feed_array.compact!
