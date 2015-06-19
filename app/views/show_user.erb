@@ -12,20 +12,22 @@
 
 	<% @posts.each do |post| %>
 		  <img class="secret_img" src="<%= post.img_url %>">
-      <div class="caption">
+      <div class="caption" id="<%= "caption-no-buttons" if !@self %>" >
   		  <p><%= post.caption %> by <%= post.user.handle %></p>
       </div>
 
-      <div class="profile-buttons">
-  		  <form action="/posts/<%=post.id%>/edit" method="get">
-  				<input class="button profile" type="submit" value="edit post">
-  			</form>
+      <% if @self %>
+        <div class="profile-buttons">
+    		  <form action="/posts/<%=post.id%>/edit" method="get">
+    				<input class="button profile" type="submit" value="edit post">
+    			</form>
 
-  		  <form action="/posts/<%=post.id%>" method="post">
-  				<input type="hidden" name="_method" value="delete">
-  				<input class="button profile" type="submit" value="delete post">
-  			</form>
-      </div>
+    		  <form action="/posts/<%=post.id%>" method="post">
+    				<input type="hidden" name="_method" value="delete">
+    				<input class="button profile" type="submit" value="delete post">
+    			</form>
+        </div>
+      <% end %>
 	<% end %>
 
 </div>
