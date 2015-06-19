@@ -21,6 +21,10 @@ header {
   width: 45%;
 }
 
+#logo {
+  margin-left: 40px;
+}
+
 
 /*-------------------- navigation styles --------------------*/
 
