@@ -68,4 +68,12 @@ let (:valid_follower) {create(:follower, user_follower_id: 10)}
       expect(last_response.status).to eq(302)
     end
   end
+
+  describe "GET '/search'" do
+    it "returns http status code 200" do
+      get '/search'
+      expect(last_response.status).to eq(200)
+    end
+  end
+
 end

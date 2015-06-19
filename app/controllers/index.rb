@@ -148,6 +148,12 @@ get '/logout' do
   redirect '/'
 end
 
+get '/search' do
+  # @users = User.find_by_handle(params) || User.find_by_email(params)
+  @users = User.where("handle = ? OR email = ?", params[:search], params[:search])
+  erb :search
+end
+
 
 def invalid_login
   session[:error] = "Invalid user name or password"

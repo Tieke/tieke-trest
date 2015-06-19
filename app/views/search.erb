@@ -1,0 +1,8 @@
+<h2>Results:</h2>
+
+<div class="container">
+  <% @users.each do |user| %>
+    <a href="/users/<%= user.id %>"><%= user.handle %></a></p>
+  <% end %>
+</div>
+
