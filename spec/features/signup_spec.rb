@@ -10,7 +10,9 @@ describe "the sign up process", feature: true do
       fill_in "email", with: user.email
       fill_in "password", with: "password"
     end
+
     click_button 'Create Account'
     expect(page).to have_content 'Profile:'
+
   end
 end
