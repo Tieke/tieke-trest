@@ -1,2 +1,4 @@
 --format NyanCatFormatter
 --format=documentation
+--color
+--format NyanCatMusicFormatter
