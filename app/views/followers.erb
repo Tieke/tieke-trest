@@ -1,6 +1,13 @@
 <h2>People you are following:</h2>
 
-
+<% if !@users.empty? %>
+	<% @users.each do |user| %>
+		<a href="/users/<%=user.id%>"><li><%= user.handle %></li></a>
+	<% end %>
+<% else %>
+	<h3> You aren't currently following anyone. </h3><br>
+	 <h3> Yours is a sad existence. </h3>
+<% end %>
 
 
 
