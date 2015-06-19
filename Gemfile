@@ -25,6 +25,7 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem "nyan-cat-formatter"
+  gem 'selenium-webdriver'
 end
 
 group :test, :development do
