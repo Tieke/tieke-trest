@@ -1,13 +1,28 @@
+
+<div class="primary">
 <h2>People you are following:</h2>
 
 <% if !@users.empty? %>
 	<% @users.each do |user| %>
-		<a href="/users/<%=user.id%>"><li><%= user.handle %></li></a>
+		<a href="/users/<%=user.id%>"><h3><%= user.handle %></h3></a>
 	<% end %>
 <% else %>
 	<h3> You aren't currently following anyone. </h3><br>
 	 <h3> Yours is a sad existence. </h3>
 <% end %>
 
+</div>
 
+<div class="secondary">
+<h2>People following you:</h2>
 
+	<% if !@followers.empty? %>
+	<% @followers.each do |follower| %>
+		<a href="/users/<%=follower.id%>"><h3><%= follower.handle %></h3></a>
+	<% end %>
+<% else %>
+	<h3> You don't currently have any followers. </h3><br>
+	 <h3> :( </h3>
+<% end %>
+
+</div>

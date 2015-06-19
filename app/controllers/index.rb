@@ -111,9 +111,10 @@ get '/followers' do
     user_following = UserFollower.where(follower_id: user_follows.id) if user_follows
     @users = []
     user_following.each {|followee| @users << User.find(followee.user_id)} if user_following
-    # puts "YOYOYOYOYOYOYOYOYOYOYO"
-    # puts @users
     @users.compact!
+    follower_objects = User.find(session[:user_id]).followers
+    @followers = follower_objects.map {|follower| User.find(follower.user_follower_id)}
+
     erb :followers
   else
     invalid_session
