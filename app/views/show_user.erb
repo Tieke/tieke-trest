@@ -5,6 +5,12 @@
     <input type="hidden" name="id" value="<%=@user.id %>">
     <input class="button" type="submit" value="Follow">
   </form>
+<% else %>
+  <form action="/followers/remove" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="id" value="<%=@user.id %>">
+    <input class="button" type="submit" value="Unfollow">
+  </form>
 <% end %>
 
 
