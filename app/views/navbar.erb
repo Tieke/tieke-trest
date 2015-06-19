@@ -7,8 +7,10 @@
     <li><a href="/posts/new" id=<%= "selected" if active_page?("posts/new") %> >upload</a></li>
     <li><a href="/logout">logout</a></li>
   </ul>
-  <form action="/search" method='get'>
-    <input type="text" name="search" placeholder="Search..." required>
-    <input type="submit" value="Search" class="button">
-  </form>
+
+    <form id= "search-form" class="search-bar" action="/search" method='get'>
+        <input id="search" class="search-field" type="text" name="search" placeholder="Search..." required>
+        <input class="search-button button" type="submit" value="Search" >
+    </form>
+
 </nav>
