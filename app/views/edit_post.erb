@@ -1,10 +1,16 @@
+<h2>Edit Post: <%=@post.caption%></h2>
+
 <div class="container">
 	<img class="secret_img" src="<%= @post.img_url %>">
 
 
-  <form action="/posts/<%=@post.id%>" method="post">
-  	<input id="edit-caption" type="text" name="caption" placeholder="<%=@post.caption%>">
-  	<input type="submit" value="edit post">
+  <form id="edit-form" action="/posts/<%=@post.id%>" method="post">
+    <div class="caption edit">
+    	<input id="edit-caption" type="text" name="caption" value="<%=@post.caption%>">
+    </div>
+    <div class="edit-button">
+    	<input class="button profile" type="submit" value="edit post">
+    </div>
 
   </form>
 </div>
