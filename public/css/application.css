@@ -66,42 +66,26 @@ nav a:hover {
 
 /*-------------------- search bar formatting --------------------*/
 
-/*.search-bar {
+.search-bar {
   width: 100%;
   margin: 0px;
   float: right;
 }
 
+.search-bar form {
+  max-width: 400px;
+}
+
 .search-field {
-  display: inline-block;
+  margin-top: 26px;
+  width: 50%;
   float: left;
 }
 
-.search_button {
-  display: inline-block;
-  float: right;
-}*/
-
-#search-form {
-  width:40%;
-}
-
-.search-bar {
-  width:500px;
-  margin: auto;
-}
-
-.search-field {
-  padding:8px 15px;
-  margin: 0px;
-  width: 40%;
-}
-
 .search-button {
-  width:auto;
-  margin: 5px;
-  position: relative;
-  left:-8px;
+  margin-top: 10px;
+  width: 50%;
+  float: right;
 }
 
 
