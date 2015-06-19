@@ -132,6 +132,16 @@ post '/followers/new' do
   end
 end
 
+delete '/followers/remove' do
+  if user = current_user
+    follower = Follower.find_by(user_follower_id: user.id)
+    UserFollower.where(user_id: params[:id], follower_id: follower.id).destroy_all
+    redirect '/posts'
+  else
+    invalid_session
+  end
+end
+
 # Login
 post '/login' do
   puts params
