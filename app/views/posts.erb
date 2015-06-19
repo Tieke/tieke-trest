@@ -6,7 +6,7 @@
 	<% record.each do |post| %>
     <div class="image">
       <a href="<%= post.img_url %>">
-    		<img class="secret_img" src="<%= post.img_url %>" alt="<%= post.caption %>">
+    		<img class="secret_img" src="<%= post.img_url %>" alt="<%= post.caption %> by <%= post.user.handle %>">
       </a>
     </div>
 		<p><%= post.caption %> by <a href="/users/<%= post.user.id %>"><%= post.user.handle %></a></p>
