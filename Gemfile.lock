@@ -41,6 +41,8 @@ GEM
     multi_json (1.10.1)
     nokogiri (1.6.4.1)
       mini_portile (~> 0.6.0)
+    nyan-cat-formatter (0.11)
+      rspec (>= 2.99, >= 2.14.2, < 4)
     pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.3)
@@ -97,6 +99,7 @@ DEPENDENCIES
   capybara
   factory_girl
   faker
+  nyan-cat-formatter
   pg
   rack (= 1.5.2)
   rack-test
