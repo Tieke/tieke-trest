@@ -123,6 +123,7 @@ p {
 }
 
 
+
 /*-------------------- form formatting --------------------*/
 
 form {
@@ -165,15 +166,31 @@ input[type="password"] {
   border: 1px solid #00bcd4;
   margin: 5px 20px 15px;
   width: 100%;
+  padding: 5px;
 }
 
 #edit-caption {
-  margin: 20px 20px 15px;
+  margin: 40px 10px 15px;
 }
 
 label {
   margin: 0 20px;
   color: #0097a7;
+}
+
+#edit-form {
+  margin-left: 30px;
+  max-width: 100%;
+}
+
+.edit {
+  width: 70%;
+}
+
+.edit-button {
+  width: 25%;
+  margin: 20px;
+  float: right;
 }
 
 
