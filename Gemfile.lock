@@ -108,6 +108,3 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   validate_url
-
-BUNDLED WITH
-   1.10.3
