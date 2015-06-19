@@ -12,7 +12,8 @@
     		<img class="secret_img" src="<%= post.img_url %>" alt="<%= post.caption %> by <%= post.user.handle %>">
       </a>
     </div>
-		<p><%= post.caption %> by <a href="/users/<%= post.user.id %>"><%= post.user.handle %></a></p>
+		<p class="font_caption">"<%= post.caption %></p> 
+		<p class="caption_handle"><a href="/users/<%= post.user.id %>"><%= post.user.handle %></a></p>
     </li>
 <% end %>
 </ul>
