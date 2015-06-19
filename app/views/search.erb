@@ -1,8 +1,6 @@
 <h2>Results:</h2>
 
-<div class="container">
   <% @users.each do |user| %>
-    <p><a href="/users/<%= user.id %>"><%= user.handle %></a></p>
+    <h2 class="search_results"><a href="/users/<%= user.id %>"><%= user.handle %></a></h2>
   <% end %>
-</div>
 
