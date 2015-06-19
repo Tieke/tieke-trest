@@ -23,7 +23,7 @@
       </a>
     </div>
     <div class="caption" id="<%= "caption-no-buttons" if !@self %>" >
-		  <p><%= post.caption %> by <%= post.user.handle %></p>
+		  <p class="font_caption"><%= post.caption %> </p><p class="caption_handle" > <%= post.user.handle %></p>
     </div>
 
     <% if @self %>
