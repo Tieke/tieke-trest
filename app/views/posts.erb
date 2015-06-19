@@ -2,10 +2,13 @@
 
 <div class="container">
 
-
 <% @feed_array.each do |record| %>
 	<% record.each do |post| %>
-		<img class="secret_img" src="<%= post.img_url %>">
+    <div class="image">
+      <a href="<%= post.img_url %>">
+    		<img class="secret_img" src="<%= post.img_url %>" alt="<%= post.caption %>">
+      </a>
+    </div>
 		<p><%= post.caption %> by <a href="/users/<%= post.user.id %>"><%= post.user.handle %></a></p>
 	<% end %>
 <% end %>
