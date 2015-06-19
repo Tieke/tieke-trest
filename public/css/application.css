@@ -118,6 +118,10 @@ p {
   margin-bottom: 60px;
 }
 
+#caption-no-buttons {
+  width: 100%;
+}
+
 
 /*-------------------- form formatting --------------------*/
 
@@ -137,7 +141,7 @@ form {
 }
 
 .button:hover {
-  background-color: #936cff;
+  background-color: #7c4dff;
   color: #b2ebf2;
   border: 1px solid #727272;
 
