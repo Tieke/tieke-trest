@@ -159,6 +159,12 @@ p {
   margin-bottom: 60px;
 }
 
+.feed li {
+  width: 45%;
+  list-style: none;
+  display: inline-block;
+}
+
 #caption-no-buttons {
   width: 100%;
 }
