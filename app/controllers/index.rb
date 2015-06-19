@@ -95,6 +95,9 @@ get '/users/:id' do
     @user = User.find(params[:id])
     @posts = @user.posts
     @self = @user == current_user
+    current_follower = Follower.find_by_user_follower_id(session[:user_id])
+    @already_following = @user.followers.include?(current_follower)
+
     erb :show_user
   else
     invalid_session

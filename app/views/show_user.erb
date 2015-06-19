@@ -1,6 +1,6 @@
 <h2><%= @user.handle %>'s Profile:</h2>
 
-<% if !@self %>
+<% if !@self && !@already_following %>
   <form action="/followers/new" method="post">
     <input type="hidden" name="id" value="<%=@user.id %>">
     <input class="button" type="submit" value="Follow">
