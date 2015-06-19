@@ -43,6 +43,7 @@ nav ul {
 
 nav li {
   display: inline-block;
+  font-family: "Raleway"
 }
 
 nav a {
@@ -132,6 +133,7 @@ p, .font_caption {
 .error {
   color: #7c4dff;
 }
+
 
 
 /*-------------------- img formatting --------------------*/
