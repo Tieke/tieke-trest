@@ -107,6 +107,13 @@ end
 # Display list of your followers
 get '/followers' do
   if current_user
+    user_follows = Follower.find_by(user_follower_id: session[:user_id])
+    user_following = UserFollower.where(follower_id: user_follows.id) if user_follows
+    @users = []
+    user_following.each {|followee| @users << User.find(followee.user_id)} if user_following
+    # puts "YOYOYOYOYOYOYOYOYOYOYO"
+    # puts @users
+    @users.compact!
     erb :followers
   else
     invalid_session
