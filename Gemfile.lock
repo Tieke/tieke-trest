@@ -24,6 +24,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
     diff-lcs (1.2.5)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -62,9 +64,15 @@ GEM
     rspec-mocks (3.1.3)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    rubyzip (1.1.7)
     scrypt (2.0.2)
       ffi-compiler (>= 0.0.2)
       rake
+    selenium-webdriver (2.46.2)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shotgun (0.9)
       rack (>= 1.0)
     shoulda-matchers (2.7.0)
@@ -87,6 +95,7 @@ GEM
     validate_url (1.0.0)
       activemodel (>= 3.0.0)
       addressable
+    websocket (1.2.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -106,6 +115,7 @@ DEPENDENCIES
   rake
   rspec
   scrypt
+  selenium-webdriver
   shotgun
   shoulda-matchers
   sinatra
