@@ -5,6 +5,7 @@
 
 
   <form id="edit-form" action="/posts/<%=@post.id%>" method="post">
+  	<input type="hidden" name="_method" value="patch">
     <div class="caption edit">
     	<input id="edit-caption" type="text" name="caption" value="<%=@post.caption%>">
     </div>
