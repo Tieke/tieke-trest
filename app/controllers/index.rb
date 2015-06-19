@@ -21,7 +21,7 @@ get '/posts' do
     users = []
     user_following.each {|followee| users << User.find(followee.user_id)} if user_following
     @feed_array = []
-    users.each { |user| @feed_array << user.posts }
+    users.each { |user| @feed_array << user.posts.last(6) }
     @feed_array.compact!
 
 

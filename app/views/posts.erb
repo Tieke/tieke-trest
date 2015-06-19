@@ -5,18 +5,16 @@
 <form class="button" action=""></form>
 
 <ul class="feed">
-  <% @feed_array.each do |record| %>
-  	<% record.each do |post| %>
-      <li>
-        <div class="image">
-          <a href="<%= post.img_url %>">
-        		<img class="secret_img" src="<%= post.img_url %>" alt="<%= post.caption %> by <%= post.user.handle %>">
-          </a>
-        </div>
-    		<p><%= post.caption %> by <a href="/users/<%= post.user.id %>"><%= post.user.handle %></a></p>
-      </li>
-  	<% end %>
-  <% end %>
+<% @feed_array.flatten.shuffle.each do |post| %>
+  <li>
+    <div class="image">
+      <a href="<%= post.img_url %>">
+    		<img class="secret_img" src="<%= post.img_url %>" alt="<%= post.caption %> by <%= post.user.handle %>">
+      </a>
+    </div>
+		<p><%= post.caption %> by <a href="/users/<%= post.user.id %>"><%= post.user.handle %></a></p>
+    </li>
+<% end %>
 </ul>
 
 </div>
