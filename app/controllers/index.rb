@@ -111,8 +111,6 @@ get '/followers' do
     user_following = UserFollower.where(follower_id: user_follows.id) if user_follows
     @users = []
     user_following.each {|followee| @users << User.find(followee.user_id)} if user_following
-    # puts "YOYOYOYOYOYOYOYOYOYOYO"
-    # puts @users
     @users.compact!
     erb :followers
   else
@@ -125,6 +123,16 @@ post '/followers/new' do
   if user = current_user
     follower = Follower.create(user_follower_id: user.id) unless follower = Follower.find_by_user_follower_id(user.id)
     UserFollower.create(user_id: params[:id], follower_id: follower.id)
+    redirect '/posts'
+  else
+    invalid_session
+  end
+end
+
+delete '/followers/remove' do
+  if user = current_user
+    follower = Follower.find_by(user_follower_id: user.id)
+    UserFollower.where(user_id: params[:id], follower_id: follower.id).destroy_all
     redirect '/posts'
   else
     invalid_session
