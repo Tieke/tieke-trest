@@ -2,7 +2,7 @@
 
 <div class="container">
   <% @users.each do |user| %>
-    <a href="/users/<%= user.id %>"><%= user.handle %></a></p>
+    <p><a href="/users/<%= user.id %>"><%= user.handle %></a></p>
   <% end %>
 </div>
 

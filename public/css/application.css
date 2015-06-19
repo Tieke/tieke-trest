@@ -64,6 +64,47 @@ nav a:hover {
   color: #7c4dff;
 }
 
+/*-------------------- search bar formatting --------------------*/
+
+/*.search-bar {
+  width: 100%;
+  margin: 0px;
+  float: right;
+}
+
+.search-field {
+  display: inline-block;
+  float: left;
+}
+
+.search_button {
+  display: inline-block;
+  float: right;
+}*/
+
+#search-form {
+  width:40%;
+}
+
+.search-bar {
+  width:500px;
+  margin: auto;
+}
+
+.search-field {
+  padding:8px 15px;
+  margin: 0px;
+  width: 40%;
+}
+
+.search-button {
+  width:auto;
+  margin: 5px;
+  position: relative;
+  left:-8px;
+}
+
+
 
 
 /*-------------------- text formatting --------------------*/
